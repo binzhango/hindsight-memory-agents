@@ -1,0 +1,92 @@
+{
+  "started_utc": "2026-11-05T12:25:22.151747+00:00",
+  "run_id": "20261105T122522Z-98ebb2f0",
+  "model": "muse-glimmer-30b",
+  "source": "For Alice's benchmark project, the selected database is SQLite. The internal project codename is maple-731. The local development server port is 4317. The exact test command is uv run pytest -q.",
+  "temperature": 0.0,
+  "max_output_tokens": 1024,
+  "repeats": 2,
+  "bank_id": "lc-demo-302d21725de8cd12edb005855ebd80e1",
+  "retain_seconds": 54.66719708300661,
+  "trials": [
+    {
+      "case": "database",
+      "repeat": 1,
+      "mode": "no_memory",
+      "expected": "SQLite",
+      "answer": "{\"answer\": null}",
+      "correct": false,
+      "total_seconds": 7.115790584008209,
+      "recall_seconds": 0.0,
+      "model_seconds": 7.114890583005035,
+      "input_tokens": 128,
+      "output_tokens": 98,
+      "finish_reason": "stop",
+      "memories": [],
+      "error": null
+    },
+    {
+      "case": "database",
+      "repeat": 1,
+      "mode": "hindsight",
+      "expected": "SQLite",
+      "answer": "{\"answer\": null}",
+      "correct": false,
+      "total_seconds": 34.20449070900213,
+      "recall_seconds": 0.078600250009913,
+      "model_seconds": 34.1255334590096,
+      "input_tokens": 203,
+      "output_tokens": 475,
+      "finish_reason": "stop",
+      "memories": [
+        {
+          "id": "20bd339b-fec6-467e-9369-0c3e9eb3526b",
+          "text": "Alice's benchmark project uses SQLite database, internal codename is maple-731, local development server port is 4317, and exact test command is 'uv run pytest -q' | Involving: Alice"
+        }
+      ],
+      "error": null
+    },
+    {
+      "case": "database",
+      "repeat": 1,
+      "mode": "provided_context",
+      "expected": "SQLite",
+      "answer": "{\"answer\": null}",
+      "correct": false,
+      "total_seconds": 37.04151312500471,
+      "recall_seconds": 0.0,
+      "model_seconds": 37.041026499995496,
+      "input_tokens": 182,
+      "output_tokens": 510,
+      "finish_reason": "stop",
+      "memories": [
+        {
+          "id": "source-document",
+          "text": "For Alice's benchmark project, the selected database is SQLite. The internal project codename is maple-731. The local development server port is 4317. The exact test command is uv run pytest -q."
+        }
+      ],
+      "error": null
+    },
+    {
+      "case": "codename",
+      "repeat": 1,
+      "mode": "hindsight",
+      "expected": "maple-731",
+      "answer": "{\"answer\": null}",
+      "correct": false,
+      "total_seconds": 38.32127058299375,
+      "recall_seconds": 0.07925624999916181,
+      "model_seconds": 38.24156424999819,
+      "input_tokens": 202,
+      "output_tokens": 517,
+      "finish_reason": "stop",
+      "memories": [
+        {
+          "id": "20bd339b-fec6-467e-9369-0c3e9eb3526b",
+          "text": "Alice's benchmark project uses SQLite database, internal codename is maple-731, local development server port is 4317, and exact test command is 'uv run pytest -q' | Involving: Alice"
+        }
+      ],
+      "error": null
+    }
+  ]
+}
