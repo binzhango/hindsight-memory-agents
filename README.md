@@ -112,6 +112,18 @@ Mocked tests check routing, one-snapshot evidence sharing, failure propagation,
 and separation of rejected drafts. They do not establish Jev accuracy.
 Explicit `remember` remains the only write path; generated answers are not retained.
 
+### Inspect deterministic decision traces
+
+```sh
+uv run python labs/decision_lab.py --output benchmarks/my-decision-lab/results.json
+```
+
+This executes the actual wrapper with scripted memory, worker, and decision providers.
+Nine cases cover accepted/rejected drafts, clarification, both sides of the confidence
+threshold, preflight/review timeouts, memory-only, and Jev without memory. The JSON
+records every event and output. The preserved run is in `benchmarks/decision-lab`.
+These are control-flow observations with zero live model calls, not accuracy results.
+
 ## Learning labs
 
 [The labs](labs/README.md) include a live SDK retain/recall/reflect script and a deterministic framework exercise covering LangChain tools, a compiled LangGraph, and Pydantic AI:
