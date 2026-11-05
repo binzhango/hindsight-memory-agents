@@ -129,6 +129,15 @@ directory for each run. Expected labels never enter worker or reviewer inputs.
 The decisive added-value comparison is combined versus memory-only; baseline lacks the
 historical facts by design. This is exploratory, not a held-out general-quality benchmark.
 
+### Recorded live findings
+
+The [64-request live run](benchmarks/2026-11-05-jev-live/REPORT.md) completed 16/16 tasks
+with memory alone and 14/16 with memory plus Jev. Both regressions were low-confidence
+preflight stops on the test-command case despite the correct recalled evidence.
+The [48-call reviewer diagnostic](benchmarks/2026-11-05-jev-review-probe/REPORT.md)
+shows that history helps release supported factual drafts while withholding unsupported
+ones. These separate exploratory experiments do not establish improved overall completion.
+
 ### Inspect deterministic decision traces
 
 ```sh

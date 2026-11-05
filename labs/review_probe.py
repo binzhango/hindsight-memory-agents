@@ -100,9 +100,9 @@ async def run(source_run, output):
                             row["response"] = result.model_dump(mode="json")
                             answer = result.choices["disposition"]
                             row["released"] = answer.choice == "proceed" and answer.confidence >= 0.6
-                            row["correct"] = row["released"] == supported
+                            row["release_matches_supported_label"] = row["released"] == supported
                         except Exception as e:
-                            row.update(error=type(e).__name__, correct=False, released=None)
+                            row.update(error=type(e).__name__, release_matches_supported_label=False, released=None)
                         row["seconds"] = perf_counter() - t
                         record["trials"].append(row)
                         (output / "results.json").write_text(json.dumps(record, indent=2) + "\n")

@@ -17,7 +17,7 @@ def report(record):
         f"Completed trials: {len(rows)} / {len(record['cases']) * 4 * record['repeats']}.",
         "Exploratory synthetic cases; repeat runs are not independent tasks.",
         "",
-        "| Mode | Successful outcomes | Accepted wrong | Withheld | Errors | Median total | Median recall | Median worker | Median Jev |",
+        "| Mode | Successful outcomes | Accepted non-success | Withheld | Errors | Median total | Median recall | Median worker | Median Jev |",
         "|---|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for mode in MODES:
@@ -71,6 +71,7 @@ def report(record):
         "generic review is not success. Accepted known answers require exact JSON values. Errors stay in denominators.",
         "Memory-free arms cannot know arbitrary project history. Compare combined against memory-only to judge added Jev value. "
         "No prompt or threshold tuning from these results. No held-out or general reasoning claim.",
+        "Accepted non-success includes abstentions (JSON null on known-fact cases), not just incorrect factual claims.",
         "Separate stage medians do not sum to the total median. Ingestion is excluded from answer time. "
         "The server caches are warm and not controlled. Read PROTOCOL.md and raw results.json for details.",
         "",

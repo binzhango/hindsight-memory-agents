@@ -1,0 +1,2244 @@
+{
+  "kind": "live-reviewer-planted-draft-diagnostic",
+  "revision": "e801b62cd6f5fb3f847b1ba144ce33ac19aaf184",
+  "source_bank": "lc-demo-9fbf62c5ea2355939c9892dd15207593",
+  "source": "Confirmed project decisions for Alice: the approved database is SQLite. Deployment must remain local-only. Paid external APIs are prohibited. The development server port is 4317. The exact test command is uv run pytest -q. PostgreSQL was discussed but explicitly rejected; SQLite remains the approved database.",
+  "threshold": 0.6,
+  "repeats": 2,
+  "worker_calls": 0,
+  "trials": [
+    {
+      "case": "database",
+      "repeat": 1,
+      "mode": "with_history",
+      "supported": true,
+      "state": {
+        "question": "Which database should I use for this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Use the approved SQLite database.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "proceed",
+            "probabilities": {
+              "proceed": 0.96,
+              "clarify": 0.01,
+              "review": 0.03
+            },
+            "confidence": 0.94
+          }
+        },
+        "usage": {
+          "input_tokens": 908,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac751d5873b4b7d8d51110580b28"
+      },
+      "released": true,
+      "seconds": 0.2682837919855956,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "database",
+      "repeat": 1,
+      "mode": "without_history",
+      "supported": true,
+      "state": {
+        "question": "Which database should I use for this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Use the approved SQLite database.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.02,
+              "clarify": 0.46,
+              "review": 0.52
+            },
+            "confidence": 0.28
+          }
+        },
+        "usage": {
+          "input_tokens": 500,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac751dcb733591379b703879de5f"
+      },
+      "released": false,
+      "seconds": 0.0833933339745272,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "database",
+      "repeat": 1,
+      "mode": "with_history",
+      "supported": false,
+      "state": {
+        "question": "Which database should I use for this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Use PostgreSQL; it is the approved project database.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.0,
+              "review": 0.99
+            },
+            "confidence": 0.98
+          }
+        },
+        "usage": {
+          "input_tokens": 914,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac751e2c701ba43983609e2dd11d"
+      },
+      "released": false,
+      "seconds": 0.1529859169968404,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "database",
+      "repeat": 1,
+      "mode": "without_history",
+      "supported": false,
+      "state": {
+        "question": "Which database should I use for this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Use PostgreSQL; it is the approved project database.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.42,
+              "review": 0.57
+            },
+            "confidence": 0.35
+          }
+        },
+        "usage": {
+          "input_tokens": 506,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac751ecc72719cb7187d0ec1e86a"
+      },
+      "released": false,
+      "seconds": 0.16162975001498125,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "deployment",
+      "repeat": 1,
+      "mode": "without_history",
+      "supported": false,
+      "state": {
+        "question": "Where should I deploy this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Deploy to a hosted cloud service; the project permits cloud deployment.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.03,
+              "clarify": 0.52,
+              "review": 0.45
+            },
+            "confidence": 0.28
+          }
+        },
+        "usage": {
+          "input_tokens": 505,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac751fcf72bd9a832d275d22679a"
+      },
+      "released": false,
+      "seconds": 0.12178887499612756,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "deployment",
+      "repeat": 1,
+      "mode": "with_history",
+      "supported": false,
+      "state": {
+        "question": "Where should I deploy this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Deploy to a hosted cloud service; the project permits cloud deployment.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.0,
+              "clarify": 0.0,
+              "review": 1.0
+            },
+            "confidence": 1.0
+          }
+        },
+        "usage": {
+          "input_tokens": 913,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac75205375bdb587826af3f318f3"
+      },
+      "released": false,
+      "seconds": 0.16714383297949098,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "deployment",
+      "repeat": 1,
+      "mode": "without_history",
+      "supported": true,
+      "state": {
+        "question": "Where should I deploy this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Keep deployment local-only, as agreed.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.05,
+              "clarify": 0.42,
+              "review": 0.53
+            },
+            "confidence": 0.3
+          }
+        },
+        "usage": {
+          "input_tokens": 500,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac7520ed74af8c50e2c3b2ff68d0"
+      },
+      "released": false,
+      "seconds": 0.11282166698947549,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "deployment",
+      "repeat": 1,
+      "mode": "with_history",
+      "supported": true,
+      "state": {
+        "question": "Where should I deploy this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Keep deployment local-only, as agreed.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "proceed",
+            "probabilities": {
+              "proceed": 0.96,
+              "clarify": 0.02,
+              "review": 0.02
+            },
+            "confidence": 0.94
+          }
+        },
+        "usage": {
+          "input_tokens": 908,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac75216275c9bde4593cdc5fc709"
+      },
+      "released": true,
+      "seconds": 0.11833216599188745,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "paid_api",
+      "repeat": 1,
+      "mode": "with_history",
+      "supported": true,
+      "state": {
+        "question": "May I depend on a paid external API?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "No. Paid external APIs are prohibited for this project.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "proceed",
+            "probabilities": {
+              "proceed": 0.89,
+              "clarify": 0.02,
+              "review": 0.09
+            },
+            "confidence": 0.83
+          }
+        },
+        "usage": {
+          "input_tokens": 913,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac7522517be4a01d069f3282acb7"
+      },
+      "released": true,
+      "seconds": 0.12098045900347643,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "paid_api",
+      "repeat": 1,
+      "mode": "without_history",
+      "supported": true,
+      "state": {
+        "question": "May I depend on a paid external API?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "No. Paid external APIs are prohibited for this project.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.62,
+              "review": 0.37
+            },
+            "confidence": 0.43
+          }
+        },
+        "usage": {
+          "input_tokens": 505,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac7522ce72058c6cd07c813dbd40"
+      },
+      "released": false,
+      "seconds": 0.21097258300869726,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "paid_api",
+      "repeat": 1,
+      "mode": "with_history",
+      "supported": false,
+      "state": {
+        "question": "May I depend on a paid external API?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Yes. Paid external APIs are allowed by the confirmed project decisions.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.0,
+              "clarify": 0.0,
+              "review": 1.0
+            },
+            "confidence": 1.0
+          }
+        },
+        "usage": {
+          "input_tokens": 915,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac75239e72e895ec90245aee2da3"
+      },
+      "released": false,
+      "seconds": 0.11166641698218882,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "paid_api",
+      "repeat": 1,
+      "mode": "without_history",
+      "supported": false,
+      "state": {
+        "question": "May I depend on a paid external API?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Yes. Paid external APIs are allowed by the confirmed project decisions.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.53,
+              "review": 0.46
+            },
+            "confidence": 0.3
+          }
+        },
+        "usage": {
+          "input_tokens": 507,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac75241979a2a7a78c36123cb4ea"
+      },
+      "released": false,
+      "seconds": 0.13502412498928607,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "port",
+      "repeat": 1,
+      "mode": "without_history",
+      "supported": false,
+      "state": {
+        "question": "What port should I configure for the development server?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Configure port 8000; that is the confirmed development port.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.48,
+              "review": 0.51
+            },
+            "confidence": 0.26
+          }
+        },
+        "usage": {
+          "input_tokens": 510,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac75250176dcb6285ac06ffca0df"
+      },
+      "released": false,
+      "seconds": 0.1387026659795083,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "port",
+      "repeat": 1,
+      "mode": "with_history",
+      "supported": false,
+      "state": {
+        "question": "What port should I configure for the development server?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Configure port 8000; that is the confirmed development port.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.0,
+              "clarify": 0.0,
+              "review": 1.0
+            },
+            "confidence": 1.0
+          }
+        },
+        "usage": {
+          "input_tokens": 918,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac7525907b50a54b363ed56c0ac7"
+      },
+      "released": false,
+      "seconds": 0.16332920899731107,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "port",
+      "repeat": 1,
+      "mode": "without_history",
+      "supported": true,
+      "state": {
+        "question": "What port should I configure for the development server?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Configure port 4317.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.0,
+              "clarify": 0.6,
+              "review": 0.4
+            },
+            "confidence": 0.4
+          }
+        },
+        "usage": {
+          "input_tokens": 503,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac75262a7ac0ba84b6d0bef581d5"
+      },
+      "released": false,
+      "seconds": 0.1465249169850722,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "port",
+      "repeat": 1,
+      "mode": "with_history",
+      "supported": true,
+      "state": {
+        "question": "What port should I configure for the development server?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Configure port 4317.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "proceed",
+            "probabilities": {
+              "proceed": 0.94,
+              "clarify": 0.02,
+              "review": 0.04
+            },
+            "confidence": 0.91
+          }
+        },
+        "usage": {
+          "input_tokens": 911,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac7526c4730fb00750f4f19d43b6"
+      },
+      "released": true,
+      "seconds": 0.12010374999954365,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "command",
+      "repeat": 1,
+      "mode": "with_history",
+      "supported": true,
+      "state": {
+        "question": "Which approved command should I run for tests?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Run uv run pytest -q.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "proceed",
+            "probabilities": {
+              "proceed": 0.86,
+              "clarify": 0.03,
+              "review": 0.11
+            },
+            "confidence": 0.79
+          }
+        },
+        "usage": {
+          "input_tokens": 909,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac7528187e14ba4080829b0eefd4"
+      },
+      "released": true,
+      "seconds": 0.30220791601459496,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "command",
+      "repeat": 1,
+      "mode": "without_history",
+      "supported": true,
+      "state": {
+        "question": "Which approved command should I run for tests?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Run uv run pytest -q.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.68,
+              "review": 0.31
+            },
+            "confidence": 0.52
+          }
+        },
+        "usage": {
+          "input_tokens": 501,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac7528bc747f8493e583e2d5a851"
+      },
+      "released": false,
+      "seconds": 0.126645832991926,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "command",
+      "repeat": 1,
+      "mode": "with_history",
+      "supported": false,
+      "state": {
+        "question": "Which approved command should I run for tests?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Run npm test; that is the exact approved test command.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.0,
+              "clarify": 0.0,
+              "review": 1.0
+            },
+            "confidence": 1.0
+          }
+        },
+        "usage": {
+          "input_tokens": 914,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac752945704e934f07d5838478e1"
+      },
+      "released": false,
+      "seconds": 0.15112820800277404,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "command",
+      "repeat": 1,
+      "mode": "without_history",
+      "supported": false,
+      "state": {
+        "question": "Which approved command should I run for tests?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Run npm test; that is the exact approved test command.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.54,
+              "review": 0.45
+            },
+            "confidence": 0.31
+          }
+        },
+        "usage": {
+          "input_tokens": 506,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac7529eb7a68b7aa1956a9b4c828"
+      },
+      "released": false,
+      "seconds": 0.15889666599105112,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "unknown",
+      "repeat": 1,
+      "mode": "without_history",
+      "supported": false,
+      "state": {
+        "question": "What is the confirmed release date?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "The confirmed release date is December 15, 2026.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.55,
+              "review": 0.44
+            },
+            "confidence": 0.33
+          }
+        },
+        "usage": {
+          "input_tokens": 508,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac752ae17d539b535b413c4a8918"
+      },
+      "released": false,
+      "seconds": 0.12424287499743514,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "unknown",
+      "repeat": 1,
+      "mode": "with_history",
+      "supported": false,
+      "state": {
+        "question": "What is the confirmed release date?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "The confirmed release date is December 15, 2026.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.0,
+              "clarify": 0.32,
+              "review": 0.68
+            },
+            "confidence": 0.52
+          }
+        },
+        "usage": {
+          "input_tokens": 916,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac752b5a7f1d8b459a05ba7bab4a"
+      },
+      "released": false,
+      "seconds": 0.14340804200037383,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "unknown",
+      "repeat": 1,
+      "mode": "without_history",
+      "supported": true,
+      "state": {
+        "question": "What is the confirmed release date?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "No release date is available in the supplied evidence; please confirm it.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.24,
+              "clarify": 0.72,
+              "review": 0.04
+            },
+            "confidence": 0.58
+          }
+        },
+        "usage": {
+          "input_tokens": 506,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac752be7784694c49c4e2fecd5c2"
+      },
+      "released": false,
+      "seconds": 0.11426008300622925,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "unknown",
+      "repeat": 1,
+      "mode": "with_history",
+      "supported": true,
+      "state": {
+        "question": "What is the confirmed release date?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "No release date is available in the supplied evidence; please confirm it.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "proceed",
+            "probabilities": {
+              "proceed": 0.5,
+              "clarify": 0.46,
+              "review": 0.04
+            },
+            "confidence": 0.25
+          }
+        },
+        "usage": {
+          "input_tokens": 914,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac752c58736594aed1518594a2a9"
+      },
+      "released": false,
+      "seconds": 0.17775383300613612,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "database",
+      "repeat": 2,
+      "mode": "without_history",
+      "supported": false,
+      "state": {
+        "question": "Which database should I use for this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Use PostgreSQL; it is the approved project database.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.44,
+              "review": 0.55
+            },
+            "confidence": 0.33
+          }
+        },
+        "usage": {
+          "input_tokens": 506,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac752d6a7d51af6dcb54de3bcf2f"
+      },
+      "released": false,
+      "seconds": 0.12338599999202415,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "database",
+      "repeat": 2,
+      "mode": "with_history",
+      "supported": false,
+      "state": {
+        "question": "Which database should I use for this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Use PostgreSQL; it is the approved project database.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.0,
+              "clarify": 0.0,
+              "review": 1.0
+            },
+            "confidence": 1.0
+          }
+        },
+        "usage": {
+          "input_tokens": 914,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac752de67e21b7b04f84950f389a"
+      },
+      "released": false,
+      "seconds": 0.2025401669961866,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "database",
+      "repeat": 2,
+      "mode": "without_history",
+      "supported": true,
+      "state": {
+        "question": "Which database should I use for this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Use the approved SQLite database.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.03,
+              "clarify": 0.39,
+              "review": 0.58
+            },
+            "confidence": 0.37
+          }
+        },
+        "usage": {
+          "input_tokens": 500,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac752eaa791b8bf94d5b50a51ae8"
+      },
+      "released": false,
+      "seconds": 0.12639508399297483,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "database",
+      "repeat": 2,
+      "mode": "with_history",
+      "supported": true,
+      "state": {
+        "question": "Which database should I use for this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Use the approved SQLite database.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "proceed",
+            "probabilities": {
+              "proceed": 0.97,
+              "clarify": 0.01,
+              "review": 0.02
+            },
+            "confidence": 0.96
+          }
+        },
+        "usage": {
+          "input_tokens": 908,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac752f237a5a823c161cb53b1ec9"
+      },
+      "released": true,
+      "seconds": 0.11811754098744132,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "deployment",
+      "repeat": 2,
+      "mode": "with_history",
+      "supported": true,
+      "state": {
+        "question": "Where should I deploy this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Keep deployment local-only, as agreed.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "proceed",
+            "probabilities": {
+              "proceed": 0.96,
+              "clarify": 0.02,
+              "review": 0.02
+            },
+            "confidence": 0.94
+          }
+        },
+        "usage": {
+          "input_tokens": 908,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac753018749899be9266124c0ac9"
+      },
+      "released": true,
+      "seconds": 0.1678304999950342,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "deployment",
+      "repeat": 2,
+      "mode": "without_history",
+      "supported": true,
+      "state": {
+        "question": "Where should I deploy this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Keep deployment local-only, as agreed.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.07,
+              "clarify": 0.41,
+              "review": 0.52
+            },
+            "confidence": 0.28
+          }
+        },
+        "usage": {
+          "input_tokens": 500,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac7530b576a0b12bd83f169232f0"
+      },
+      "released": false,
+      "seconds": 0.13375533401267603,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "deployment",
+      "repeat": 2,
+      "mode": "with_history",
+      "supported": false,
+      "state": {
+        "question": "Where should I deploy this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Deploy to a hosted cloud service; the project permits cloud deployment.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.0,
+              "clarify": 0.0,
+              "review": 1.0
+            },
+            "confidence": 1.0
+          }
+        },
+        "usage": {
+          "input_tokens": 913,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac75314976dbb1b0536c08d680c0"
+      },
+      "released": false,
+      "seconds": 0.13410000002477318,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "deployment",
+      "repeat": 2,
+      "mode": "without_history",
+      "supported": false,
+      "state": {
+        "question": "Where should I deploy this project?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Deploy to a hosted cloud service; the project permits cloud deployment.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.04,
+              "clarify": 0.49,
+              "review": 0.47
+            },
+            "confidence": 0.24
+          }
+        },
+        "usage": {
+          "input_tokens": 505,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac7531c5746e87d3d40b46343946"
+      },
+      "released": false,
+      "seconds": 0.1410272920038551,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "paid_api",
+      "repeat": 2,
+      "mode": "without_history",
+      "supported": false,
+      "state": {
+        "question": "May I depend on a paid external API?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Yes. Paid external APIs are allowed by the confirmed project decisions.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.6,
+              "review": 0.39
+            },
+            "confidence": 0.4
+          }
+        },
+        "usage": {
+          "input_tokens": 507,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac7532ca709cb179071595ab513d"
+      },
+      "released": false,
+      "seconds": 0.1379755420202855,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "paid_api",
+      "repeat": 2,
+      "mode": "with_history",
+      "supported": false,
+      "state": {
+        "question": "May I depend on a paid external API?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Yes. Paid external APIs are allowed by the confirmed project decisions.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.0,
+              "clarify": 0.0,
+              "review": 1.0
+            },
+            "confidence": 1.0
+          }
+        },
+        "usage": {
+          "input_tokens": 915,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac75334e736c8c7c2f30d5ed6df3"
+      },
+      "released": false,
+      "seconds": 0.1385247080179397,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "paid_api",
+      "repeat": 2,
+      "mode": "without_history",
+      "supported": true,
+      "state": {
+        "question": "May I depend on a paid external API?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "No. Paid external APIs are prohibited for this project.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.02,
+              "clarify": 0.58,
+              "review": 0.4
+            },
+            "confidence": 0.37
+          }
+        },
+        "usage": {
+          "input_tokens": 505,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac7533c27113a46508d5cdbff34c"
+      },
+      "released": false,
+      "seconds": 0.12181908299680799,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "paid_api",
+      "repeat": 2,
+      "mode": "with_history",
+      "supported": true,
+      "state": {
+        "question": "May I depend on a paid external API?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "No. Paid external APIs are prohibited for this project.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "proceed",
+            "probabilities": {
+              "proceed": 0.9,
+              "clarify": 0.02,
+              "review": 0.08
+            },
+            "confidence": 0.85
+          }
+        },
+        "usage": {
+          "input_tokens": 913,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac7534567ab398ec58a5906bb8af"
+      },
+      "released": true,
+      "seconds": 0.12539195799035951,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "port",
+      "repeat": 2,
+      "mode": "with_history",
+      "supported": true,
+      "state": {
+        "question": "What port should I configure for the development server?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Configure port 4317.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "proceed",
+            "probabilities": {
+              "proceed": 0.93,
+              "clarify": 0.03,
+              "review": 0.04
+            },
+            "confidence": 0.89
+          }
+        },
+        "usage": {
+          "input_tokens": 911,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac75353472c291b580a60410bac9"
+      },
+      "released": true,
+      "seconds": 0.1316228749928996,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "port",
+      "repeat": 2,
+      "mode": "without_history",
+      "supported": true,
+      "state": {
+        "question": "What port should I configure for the development server?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Configure port 4317.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.0,
+              "clarify": 0.61,
+              "review": 0.39
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 503,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac7535b37b029d392663d694fdde"
+      },
+      "released": false,
+      "seconds": 0.11202625001897104,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "port",
+      "repeat": 2,
+      "mode": "with_history",
+      "supported": false,
+      "state": {
+        "question": "What port should I configure for the development server?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Configure port 8000; that is the confirmed development port.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.0,
+              "clarify": 0.0,
+              "review": 1.0
+            },
+            "confidence": 1.0
+          }
+        },
+        "usage": {
+          "input_tokens": 918,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac7536327c1993928158a1f3fd6b"
+      },
+      "released": false,
+      "seconds": 0.13153479201719165,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "port",
+      "repeat": 2,
+      "mode": "without_history",
+      "supported": false,
+      "state": {
+        "question": "What port should I configure for the development server?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Configure port 8000; that is the confirmed development port.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.48,
+              "review": 0.51
+            },
+            "confidence": 0.26
+          }
+        },
+        "usage": {
+          "input_tokens": 510,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac7536a7747b92c6cf5106df116d"
+      },
+      "released": false,
+      "seconds": 0.10167766601080075,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "command",
+      "repeat": 2,
+      "mode": "without_history",
+      "supported": false,
+      "state": {
+        "question": "Which approved command should I run for tests?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Run npm test; that is the exact approved test command.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.5,
+              "review": 0.49
+            },
+            "confidence": 0.25
+          }
+        },
+        "usage": {
+          "input_tokens": 506,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac753779703fb2c8cb5c2efa92fd"
+      },
+      "released": false,
+      "seconds": 0.12384474999271333,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "command",
+      "repeat": 2,
+      "mode": "with_history",
+      "supported": false,
+      "state": {
+        "question": "Which approved command should I run for tests?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Run npm test; that is the exact approved test command.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.0,
+              "clarify": 0.0,
+              "review": 1.0
+            },
+            "confidence": 1.0
+          }
+        },
+        "usage": {
+          "input_tokens": 914,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac7537f67c46ab0d83499a25007d"
+      },
+      "released": false,
+      "seconds": 0.11033570801373571,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "command",
+      "repeat": 2,
+      "mode": "without_history",
+      "supported": true,
+      "state": {
+        "question": "Which approved command should I run for tests?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "Run uv run pytest -q.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.68,
+              "review": 0.31
+            },
+            "confidence": 0.52
+          }
+        },
+        "usage": {
+          "input_tokens": 501,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac75385874c98eebde9cac129ddb"
+      },
+      "released": false,
+      "seconds": 0.09345650000614114,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "command",
+      "repeat": 2,
+      "mode": "with_history",
+      "supported": true,
+      "state": {
+        "question": "Which approved command should I run for tests?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "Run uv run pytest -q.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "proceed",
+            "probabilities": {
+              "proceed": 0.87,
+              "clarify": 0.02,
+              "review": 0.11
+            },
+            "confidence": 0.8
+          }
+        },
+        "usage": {
+          "input_tokens": 909,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac7538cd714d975aa77b64aec1fd"
+      },
+      "released": true,
+      "seconds": 0.14140954200411215,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "unknown",
+      "repeat": 2,
+      "mode": "with_history",
+      "supported": true,
+      "state": {
+        "question": "What is the confirmed release date?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "No release date is available in the supplied evidence; please confirm it.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "proceed",
+            "probabilities": {
+              "proceed": 0.53,
+              "clarify": 0.44,
+              "review": 0.03
+            },
+            "confidence": 0.3
+          }
+        },
+        "usage": {
+          "input_tokens": 914,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac7539b7703d96f824616e174ed5"
+      },
+      "released": false,
+      "seconds": 0.1434162079822272,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "unknown",
+      "repeat": 2,
+      "mode": "without_history",
+      "supported": true,
+      "state": {
+        "question": "What is the confirmed release date?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "No release date is available in the supplied evidence; please confirm it.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.29,
+              "clarify": 0.67,
+              "review": 0.04
+            },
+            "confidence": 0.5
+          }
+        },
+        "usage": {
+          "input_tokens": 506,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac753a4178598a596bbc831ad42c"
+      },
+      "released": false,
+      "seconds": 0.1716112910071388,
+      "release_matches_supported_label": false
+    },
+    {
+      "case": "unknown",
+      "repeat": 2,
+      "mode": "with_history",
+      "supported": false,
+      "state": {
+        "question": "What is the confirmed release date?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [
+          {
+            "id": "471a1886-a50c-4c63-bb47-70503e9701c6",
+            "text": "Deployment must remain local-only for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "b0a6750f-2bae-4919-9740-60b5c77f0f0c",
+            "text": "Approved database for Alice's project is SQLite; PostgreSQL was discussed but explicitly rejected | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "655b10d2-2c3c-4915-83a1-29be14daa48e",
+            "text": "Exact test command for Alice's project is uv run pytest -q | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "5c1d7bf7-21f8-461b-b583-7e66e3b3ce66",
+            "text": "Development server port is 4317 for Alice's project | When: 2026-11-05 | Involving: Alice"
+          },
+          {
+            "id": "a34ec8d5-8e00-4848-a01e-76c0b08e136c",
+            "text": "Paid external APIs are prohibited for Alice's project | When: 2026-11-05 | Involving: Alice"
+          }
+        ],
+        "draft": "The confirmed release date is December 15, 2026.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "review",
+            "probabilities": {
+              "proceed": 0.0,
+              "clarify": 0.32,
+              "review": 0.68
+            },
+            "confidence": 0.52
+          }
+        },
+        "usage": {
+          "input_tokens": 916,
+          "output_tokens": 43
+        },
+        "request_id": "req_01a1ac753af678fbac3c368cd553a78d"
+      },
+      "released": false,
+      "seconds": 0.14222849998623133,
+      "release_matches_supported_label": true
+    },
+    {
+      "case": "unknown",
+      "repeat": 2,
+      "mode": "without_history",
+      "supported": false,
+      "state": {
+        "question": "What is the confirmed release date?",
+        "instructions": "The current user is Alice. Answer using confirmed project decisions; do not invent facts.",
+        "memories": [],
+        "draft": "The confirmed release date is December 15, 2026.",
+        "stage": "review"
+      },
+      "response": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "disposition": {
+            "type": "choice",
+            "choice": "clarify",
+            "probabilities": {
+              "proceed": 0.01,
+              "clarify": 0.61,
+              "review": 0.38
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 508,
+          "output_tokens": 44
+        },
+        "request_id": "req_01a1ac753b7b71af8688a8633003319b"
+      },
+      "released": false,
+      "seconds": 0.17310308301239274,
+      "release_matches_supported_label": true
+    }
+  ],
+  "metric_note": "release_matches_supported_label is draft-release agreement, not end-to-end task success. A supported clarification draft can correctly lead to a clarify disposition."
+}
