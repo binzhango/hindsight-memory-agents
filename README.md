@@ -112,6 +112,23 @@ Mocked tests check routing, one-snapshot evidence sharing, failure propagation,
 and separation of rejected drafts. They do not establish Jev accuracy.
 Explicit `remember` remains the only write path; generated answers are not retained.
 
+### Run the live four-configuration benchmark
+
+With Hindsight and LM Studio running and `TYPESAFE_API_KEY` (or `JEV_TOKEN`) configured:
+
+```sh
+uv run --extra jev python -m memory_agents.decision_benchmark \
+  --output benchmarks/my-jev-run --repeats 2
+```
+
+This makes 64 sequential trials: eight synthetic cases, four configurations, two repeats.
+It creates separate memory-only/combined banks, records full inputs and live responses,
+and reports strict task correctness, withheld answers, accepted errors, and component latency.
+No answers are retained. The new banks remain available for inspection. Use a new output
+directory for each run. Expected labels never enter worker or reviewer inputs.
+The decisive added-value comparison is combined versus memory-only; baseline lacks the
+historical facts by design. This is exploratory, not a held-out general-quality benchmark.
+
 ### Inspect deterministic decision traces
 
 ```sh
