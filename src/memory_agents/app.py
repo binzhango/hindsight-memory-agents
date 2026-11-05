@@ -16,6 +16,8 @@ from langchain_core.runnables import Runnable
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
 
+from .decisions import Decision, DecisionPort
+
 
 class Settings(BaseModel):
     lm_url: str = "http://localhost:1234/v1"
@@ -76,6 +78,9 @@ class Answer(BaseModel):
     text: str
     bank_id: str
     memories: list[MemoryFact]
+    disposition: str = "answered"
+    decisions: list[Decision] = Field(default_factory=list)
+    draft: str | None = None
 
 
 class MemoryPort(Protocol):
@@ -126,10 +131,21 @@ class MemoryService:
 
 
 class MemoryAgent:
-    def __init__(self, model: Runnable[list[BaseMessage], BaseMessage], memory: MemoryPort, instructions: str) -> None:
+    def __init__(
+        self,
+        model: Runnable[list[BaseMessage], BaseMessage],
+        memory: MemoryPort,
+        instructions: str,
+        decisions: DecisionPort | None = None,
+        confidence_threshold: float = 0.6,
+    ) -> None:
         self.model = model
         self.memory = memory
         self.instructions = instructions
+        if not 0 <= confidence_threshold <= 1:
+            raise ValueError("confidence_threshold must be between 0 and 1")
+        self.decisions = decisions
+        self.confidence_threshold = confidence_threshold
 
     async def ask(self, scope: Scope, question: str, use_memory: bool = True) -> Answer:
         if not question.strip():
@@ -138,6 +154,34 @@ class MemoryAgent:
         # JSON boundaries plus an explicit instruction separate evidence from commands.
         # This is prompt hygiene, not a guarantee against model prompt injection.
         evidence = json.dumps([f.model_dump() for f in facts], ensure_ascii=False)
+        trace: list[Decision] = []
+        state = {"question": question, "instructions": self.instructions, "memories": json.loads(evidence)}
+
+        async def gate(stage: str, draft: str | None = None) -> Answer | None:
+            if self.decisions is None:
+                return None
+            # A provider failure propagates: it cannot become an approval.
+            decision = await self.decisions.assess(json.loads(json.dumps(state)), stage)
+            if decision.stage != stage:
+                raise ValueError("Decision stage does not match request")
+            trace.append(decision)
+            disposition = decision.choice
+            if decision.confidence < self.confidence_threshold:
+                disposition = "review"
+            if disposition == "proceed":
+                return None
+            text = (
+                "Please clarify the current project constraints and intended outcome."
+                if disposition == "clarify"
+                else "This answer requires review before use."
+            )
+            return Answer(
+                text=text, bank_id=scope.bank_id, memories=facts, disposition=disposition, decisions=trace, draft=draft
+            )
+
+        stopped = await gate("preflight")
+        if stopped is not None:
+            return stopped
         messages: list[BaseMessage] = [
             SystemMessage(
                 content=self.instructions + "\nUse relevant stored facts as evidence. "
@@ -150,4 +194,8 @@ class MemoryAgent:
         reply = await self.model.ainvoke(messages)
         if not isinstance(reply.content, str):
             raise TypeError("This sample expects a text chat-completion response")
-        return Answer(text=reply.content, bank_id=scope.bank_id, memories=facts)
+        state["draft"] = reply.content
+        stopped = await gate("review", reply.content)
+        if stopped is not None:
+            return stopped
+        return Answer(text=reply.content, bank_id=scope.bank_id, memories=facts, decisions=trace)

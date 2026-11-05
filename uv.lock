@@ -584,6 +584,9 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
+jev = [
+    { name = "langchain-typesafe" },
+]
 labs = [
     { name = "hindsight-langgraph", extra = ["langgraph"] },
     { name = "hindsight-pydantic-ai" },
@@ -603,10 +606,11 @@ requires-dist = [
     { name = "hindsight-langgraph", extras = ["langgraph"], marker = "extra == 'labs'", git = "https://github.com/vectorize-io/hindsight.git?subdirectory=hindsight-integrations%2Flanggraph&rev=ee3bd049ebe3b96b7d1120328429102100c1e28e" },
     { name = "hindsight-pydantic-ai", marker = "extra == 'labs'", git = "https://github.com/vectorize-io/hindsight.git?subdirectory=hindsight-integrations%2Fpydantic-ai&rev=ee3bd049ebe3b96b7d1120328429102100c1e28e" },
     { name = "langchain-openai", specifier = ">=1.0,<2" },
+    { name = "langchain-typesafe", marker = "extra == 'jev'", specifier = "==0.0.1" },
     { name = "pydantic", specifier = ">=2.10" },
     { name = "python-dotenv", specifier = ">=1.0" },
 ]
-provides-extras = ["labs"]
+provides-extras = ["jev", "labs"]
 
 [package.metadata.requires-dev]
 dev = [
@@ -890,6 +894,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/cb/8b/d908d082c3cf5368ddd1816ed114de79c873f979ba7f98b95fab0e841643/langchain_protocol-0.0.20.tar.gz", hash = "sha256:0f5bd002474265648e91161771a9e0438fe9480bd55a416e51af0f60070637ec", size = 6280, upload-time = "2026-10-20T11:13:50.84Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/02/4b/f1c99a0b27c5ff8b4b131c0d6e62012c17cc424089efe213767db927afd2/langchain_protocol-0.0.20-py3-none-any.whl", hash = "sha256:3c935e5e46b0f6f9cb52f45ba7cfa53d1b9fa80c82c4a277d47f03e07f7385b1", size = 7347, upload-time = "2026-10-20T11:13:49.566Z" },
+]
+
+[[package]]
+name = "langchain-typesafe"
+version = "0.0.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "httpx2" },
+    { name = "langchain-core" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/3f/60/538f0cdcd76f221ed4fec844b83801b3fa2360072e519e54911f70b15a67/langchain_typesafe-0.0.1.tar.gz", hash = "sha256:b48e888f861024c866f04e8b10b6aa2d89e57fa3b74530d5d668432ffca89b0a", size = 200959, upload-time = "2026-11-04T00:11:10.361Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3f/6f/cf85d99bee44659a199a874df06e5010f6dd0f991d51adc7aaeda0eb56ae/langchain_typesafe-0.0.1-py3-none-any.whl", hash = "sha256:17222e702829f162292e122141e17e59b339bb198ac5f9307cb8a7dec2e8c497", size = 24935, upload-time = "2026-11-04T00:11:09.226Z" },
 ]
 
 [[package]]

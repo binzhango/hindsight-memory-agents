@@ -68,6 +68,9 @@ async def run() -> int:
         if name == "remember":
             command.add_argument("--document-id", help="Reuse to replace this source document")
         if name == "ask":
+            command.add_argument(
+                "--jev", action="store_true", help="Send selected history to hosted Jev for preflight and review"
+            )
             command.add_argument("--no-memory", action="store_true", help="Baseline without recall")
     args = parser.parse_args()
     load_dotenv(args.env_file, override=False)
@@ -76,6 +79,7 @@ async def run() -> int:
         return 0 if await doctor(settings) else 1
     scope = Scope(args.user, args.project)
     memory = MemoryService(settings)
+    decisions = None
     try:
         if args.command == "remember":
             document = await memory.remember(scope, args.text, args.agent, args.document_id)
@@ -87,12 +91,20 @@ async def run() -> int:
             facts = await memory.recall(scope, args.text)
             print(json.dumps([f.model_dump() for f in facts], indent=2))
         else:
-            agent = MemoryAgent(settings.chat_model(), memory, ROLES[args.agent])
+            if args.jev:
+                from .decisions import JevDecisions
+
+                decisions = JevDecisions()
+            agent = MemoryAgent(settings.chat_model(), memory, ROLES[args.agent], decisions=decisions)
             answer = await agent.ask(scope, args.text, use_memory=not args.no_memory)
             print(answer.model_dump_json(indent=2))
         return 0
     finally:
-        await memory.close()
+        try:
+            if decisions is not None:
+                await decisions.close()
+        finally:
+            await memory.close()
 
 
 def main() -> None:

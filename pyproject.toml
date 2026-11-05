@@ -6,6 +6,7 @@ requires-python = ">=3.11"
 dependencies = ["langchain-openai>=1.0,<2", "hindsight-client>=1.2,<2", "aiohttp>=3.10", "python-dotenv>=1.0", "pydantic>=2.10"]
 
 [project.optional-dependencies]
+jev = ["langchain-typesafe==0.0.1"]
 labs = ["hindsight-langgraph[langgraph]", "hindsight-pydantic-ai"]
 
 [project.scripts]

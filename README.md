@@ -84,6 +84,34 @@ finally:
 
 Resolve scope and checkpoint identity from the authenticated request. Keep existing tools and task instructions. Manage replacement of injected evidence in checkpointed conversations, and avoid duplicate recall if another middleware already supplies memory. Retain confirmed decisions and validated outcomes explicitly. Memory failures surface rather than silently producing a memory-free answer; a missing first-time bank returns empty evidence.
 
+## Optional Jev preflight and answer review
+
+Install `uv sync --frozen --extra jev` and set `TYPESAFE_API_KEY` in `.env`.
+`--jev` sends the question, agent instructions, selected memory facts and generated
+answer to the hosted TypeSafe service. Use synthetic fixtures when exploring.
+The default path makes no Jev calls.
+
+```sh
+uv run --extra jev memory-agents ask \
+  'I am Alice. Suggest a minimal implementation stack for this project.' \
+  --user sample-alice --project lmstudio-demo --agent coder --jev
+```
+
+One recall snapshot feeds both Jev and the worker. Jev chooses `proceed`, `clarify`
+or `review` before generation, then assesses the draft against the same evidence.
+Python routes confidence below 0.60 to review. This is an illustrative, uncalibrated
+threshold. A blocked draft appears only in `draft`, never as the accepted `text`.
+Provider failures fail the command visibly. These are answer-level gates: a review
+result is a handoff signal, not an implemented human approval queue. Do not wrap a
+tool-executing agent and assume post-answer review prevents earlier side effects.
+
+Compare the four configurations using `ask`, `ask --no-memory`, `ask --jev`, and
+`ask --no-memory --jev`. No combined live accuracy benchmark has been run.
+The existing benchmark runner and historical scores cover memory only.
+Mocked tests check routing, one-snapshot evidence sharing, failure propagation,
+and separation of rejected drafts. They do not establish Jev accuracy.
+Explicit `remember` remains the only write path; generated answers are not retained.
+
 ## Learning labs
 
 [The labs](labs/README.md) include a live SDK retain/recall/reflect script and a deterministic framework exercise covering LangChain tools, a compiled LangGraph, and Pydantic AI:
